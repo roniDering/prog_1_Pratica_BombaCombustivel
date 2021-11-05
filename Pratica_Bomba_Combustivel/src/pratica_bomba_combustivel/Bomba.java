@@ -17,7 +17,7 @@ public class Bomba {
     }
 
     //metodos
-    public double valorParaLitros(double valor) {
+    private double valorParaLitros(double valor) {
         //valor qtd de dinheiro do cliente
         // return qtd de litros que vai ser abastecido
         //quer abastecer 100 reais
@@ -27,7 +27,7 @@ public class Bomba {
         return valor / preco;
     }
 
-    private boolean abastecerPorLitro(double litros) {
+    public boolean abastecerPorLitro(double litros) {
         if (litros < quantidade) {
             this.setQuantidade(this.getQuantidade() - litros);
             return true; 
@@ -39,7 +39,7 @@ public class Bomba {
         }
     }
 
-    private boolean abastecerPorValor(double valor) {
+    public boolean abastecerPorValor(double valor) {
         
         if ((this.abastecerPorLitro(valor) == true) &&
             (this.valorParaLitros(valor) >0)) {
@@ -51,7 +51,7 @@ public class Bomba {
             //e se ele informou mais que 0 litros
     }
 
-    private double faturamento() {
+    public double faturamento() {
         //retorna o preço que o cliente paga
         //qtd de gasolina * preco
         if (this.abastecerPorLitro(preco) ==true
